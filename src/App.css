@@ -1,0 +1,475 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Share Tech Mono', monospace;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1147 50%, #0a0e27 100%);
+  color: #00ffff;
+  overflow: hidden;
+}
+
+.react-flow__node {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.react-flow__handle {
+  background: #00ffff;
+  border: 2px solid #00ffff;
+  width: 10px;
+  height: 10px;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+.react-flow__edge-path {
+  stroke-dasharray: 5, 5;
+  animation: dash 20s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+.header-panel {
+  background: rgba(10, 14, 26, 0.8);
+  border: 1px solid #00ffff;
+  padding: 15px 25px;
+  border-radius: 0;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.command-header {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.command-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #00ffff 0%, #8a2be2 50%, #00ffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.5));
+}
+
+.command-subtitle {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: #00ffff;
+  opacity: 0.7;
+  letter-spacing: 1px;
+}
+
+.node-container {
+  background: linear-gradient(135deg, rgba(15, 20, 45, 0.95) 0%, rgba(25, 15, 45, 0.95) 100%);
+  border: 2px solid #00d9ff;
+  padding: 20px;
+  min-width: 300px;
+  position: relative;
+  box-shadow: 0 0 30px rgba(138, 43, 226, 0.3), 0 0 60px rgba(0, 217, 255, 0.2);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.node-container:hover {
+  box-shadow: 0 0 50px rgba(138, 43, 226, 0.6), 0 0 80px rgba(0, 217, 255, 0.4);
+  border-color: #00ffff;
+  transform: translateY(-2px);
+}
+
+.node-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.node-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #00ffff;
+}
+
+.node-icon {
+  font-size: 18px;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.status-dot.active {
+  background: #00ff88;
+  box-shadow: 0 0 10px #00ff88, 0 0 20px rgba(0, 255, 136, 0.5);
+}
+
+.status-dot.online {
+  background: #00ffff;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+.status-dot.deployed {
+  background: #ffa500;
+  box-shadow: 0 0 10px #ffa500, 0 0 20px rgba(255, 165, 0, 0.5);
+}
+
+.status-dot.secure {
+  background: #ff00ff;
+  box-shadow: 0 0 10px #ff00ff, 0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.node-content {
+  font-size: 13px;
+}
+
+.identity-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.field-label {
+  color: rgba(0, 255, 255, 0.7);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.field-value {
+  color: #ffa500;
+  font-weight: 600;
+  font-size: 14px;
+  text-shadow: 0 0 8px rgba(255, 165, 0, 0.4);
+}
+
+.action-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px solid #00d9ff;
+  color: #00ffff;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.action-button:hover {
+  background: linear-gradient(90deg, #00ffff 0%, #8a2be2 100%);
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(138, 43, 226, 0.4);
+  border-color: #8a2be2;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+.skill-name {
+  color: #00ffff;
+}
+
+.skill-level {
+  color: #ffa500;
+  font-size: 11px;
+  text-shadow: 0 0 6px rgba(255, 165, 0, 0.3);
+}
+
+.skill-bar {
+  height: 4px;
+  background: rgba(0, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #00ffff 0%, #8a2be2 50%, #ffa500 100%);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(138, 43, 226, 0.4);
+  animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-item {
+  padding: 12px;
+  background: rgba(0, 255, 255, 0.05);
+  border-left: 2px solid #00ffff;
+  transition: all 0.3s ease;
+}
+
+.project-item:hover {
+  background: rgba(0, 255, 255, 0.1);
+  border-left-color: #ffaa00;
+  transform: translateX(5px);
+}
+
+.project-name {
+  color: #00ffff;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.project-tech {
+  color: rgba(0, 255, 255, 0.6);
+  font-size: 11px;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: rgba(0, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: #00ffff;
+  transform: translateX(5px);
+}
+
+.contact-icon {
+  font-size: 20px;
+  color: #00ffff;
+}
+
+.contact-value {
+  color: #ffa500;
+  font-size: 12px;
+  word-break: break-all;
+  text-shadow: 0 0 6px rgba(255, 165, 0, 0.3);
+}
+
+.react-flow__controls {
+  background: rgba(10, 14, 26, 0.8);
+  border: 1px solid #00ffff;
+}
+
+.react-flow__controls-button {
+  background: rgba(10, 14, 26, 0.8);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+  color: #00ffff;
+}
+
+.react-flow__controls-button:hover {
+  background: rgba(0, 255, 255, 0.2);
+}
+
+.react-flow__minimap {
+  background: rgba(10, 14, 26, 0.8);
+  border: 1px solid #00ffff;
+}
+
+/* Discord Login Styles */
+.discord-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.discord-login-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #5865F2 0%, #404eed 100%);
+  border: 2px solid #5865F2;
+  color: #ffffff;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(88, 101, 242, 0.4);
+}
+
+.discord-login-btn:hover {
+  background: linear-gradient(135deg, #404eed 0%, #5865F2 100%);
+  box-shadow: 0 6px 30px rgba(88, 101, 242, 0.6);
+  transform: translateY(-2px);
+}
+
+.discord-login-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.discord-user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 15px;
+  background: rgba(88, 101, 242, 0.1);
+  border: 2px solid #5865F2;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(88, 101, 242, 0.3);
+}
+
+.user-avatar {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.user-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid #5865F2;
+  box-shadow: 0 0 15px rgba(88, 101, 242, 0.5);
+}
+
+.status-online {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  background: #23a559;
+  border: 3px solid rgba(10, 14, 39, 0.95);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(35, 165, 89, 0.6);
+}
+
+.user-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.user-name {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(88, 101, 242, 0.5);
+}
+
+.user-tag {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+}
+
+.discord-logout-btn {
+  padding: 8px 16px;
+  background: transparent;
+  border: 2px solid #ed4245;
+  color: #ed4245;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.discord-logout-btn:hover {
+  background: #ed4245;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(237, 66, 69, 0.5);
+}
+
+.loading-spinner {
+  color: #5865F2;
+  font-size: 14px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.auth-panel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+

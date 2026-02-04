@@ -7,6 +7,7 @@ function ChatbotNode({ data }) {
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const isLocked = !data.unlocked;
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -26,7 +27,7 @@ function ChatbotNode({ data }) {
     setIsLoading(true);
 
     try {
-      const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY || localStorage.getItem('groq_api_key') || '';
+      const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY;
       
       const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
@@ -73,7 +74,13 @@ function ChatbotNode({ data }) {
   };
 
   return (
-    <div className="node-container chatbot-node">
+    <div className={`node-container chatbot-node ${isLocked ? 'locked-node' : ''}`}>
+      {isLocked && (
+        <div className="locked-overlay">
+          <div className="lock-icon">🔒</div>
+          <div className="lock-message">Login with Discord to unlock</div>
+        </div>
+      )}
       <div className="node-header">
         <div className="node-title">
           <span className="node-icon">🤖</span>
@@ -112,12 +119,12 @@ function ChatbotNode({ data }) {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
-            disabled={isLoading}
+            disabled={isLoading || isLocked}
           />
           <button 
             className="chat-send-btn" 
             onClick={sendMessage}
-            disabled={isLoading || !input.trim()}
+            disabled={isLoading || !input.trim() || isLocked}
           >
             ➤
           </button>

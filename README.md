@@ -1,16 +1,46 @@
-# React + Vite
+# Cyberpunk Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React Flow-based portfolio website with Discord OAuth integration and AI chatbot capabilities.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive Node-Based UI**: Built with React Flow for a unique, cyberpunk-themed navigation experience
+- **Discord OAuth Login**: Login with Discord to unlock premium features
+- **AI Chatbot**: Powered by Groq API (Llama 3.3 70B) - visible but locked until login
+- **Cyberpunk Aesthetics**: Purple and cyan gradients, neon glows, and smooth animations
 
-## React Compiler
+## Setup
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Expanding the ESLint configuration
+3. Create a `.env` file with your API key:
+   ```
+   VITE_GROQ_API_KEY=your_groq_api_key_here
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+## GitHub Pages Deployment
+
+This site is automatically deployed to GitHub Pages using GitHub Actions. To set it up:
+
+1. Go to your repository **Settings** → **Secrets and variables** → **Actions**
+2. Add a new repository secret:
+   - Name: `GROQ_API_KEY`
+   - Value: Your Groq API key
+3. Push to the main branch to trigger deployment
+
+The site will be available at `https://your-username.github.io/portfolio/`
+
+## Discord OAuth Setup
+
+Configure Discord redirect URIs for both local development and production:
+- `http://localhost:5173/portfolio/`
+- `https://your-username.github.io/portfolio/`

@@ -15,6 +15,9 @@ import IdentityNode from './components/IdentityNode';
 import SkillsNode from './components/SkillsNode';
 import ProjectsNode from './components/ProjectsNode';
 import ContactNode from './components/ContactNode';
+import ChatbotNode from './components/ChatbotNode';
+import SettingsNode from './components/SettingsNode';
+import AnalyticsNode from './components/AnalyticsNode';
 import DiscordLogin from './components/DiscordLogin';
 import './App.css';
 
@@ -23,6 +26,9 @@ const nodeTypes = {
   skills: SkillsNode,
   projects: ProjectsNode,
   contact: ContactNode,
+  chatbot: ChatbotNode,
+  settings: SettingsNode,
+  analytics: AnalyticsNode,
 };
 
 const initialNodes = [
@@ -121,18 +127,81 @@ function App() {
     const storedUser = localStorage.getItem('discord_user');
     if (storedUser) {
       try {
-        setUser(JSON.parse(storedUser));
+        const userData = JSON.parse(storedUser);
+        setUser(userData);
+        // Add premium nodes when user logs in
+        addPremiumNodes(userData);
       } catch (e) {
         localStorage.removeItem('discord_user');
       }
     }
   }, []);
 
-  const handleLogin = (userData) => {
-    setUser(userData);
-    // Update identity node with Discord user info
-    setNodes((nds) =>
-      nds.map((node) => {
+  const addPremiumNodes = (userData) => {
+    // Add premium nodes for logged-in users
+    const premiumNodes = [
+      {
+        id: 'chatbot',
+        type: 'chatbot',
+        position: { x: 900, y: 50 },
+        data: {
+          label: 'AI ASSISTANT',
+          status: 'READY'
+        },
+      },
+      {
+        id: 'settings',
+        type: 'settings',
+        position: { x: 900, y: 350 },
+        data: {
+          label: 'SETTINGS MODULE',
+          status: 'SECURE'
+        },
+      },
+      {
+        id: 'analytics',
+        type: 'analytics',
+        position: { x: 500, y: 550 },
+        data: {
+          label: 'ANALYTICS DASHBOARD',
+          status: 'TRACKING'
+        },
+      },
+    ];
+
+    const premiumEdges = [
+      {
+        id: 'e4-5',
+        source: 'skills',
+        target: 'chatbot',
+        animated: true,
+        style: { stroke: '#8a2be2', strokeWidth: 2 },
+      },
+      {
+        id: 'e5-6',
+        source: 'chatbot',
+        target: 'settings',
+        animated: true,
+        style: { stroke: '#8a2be2', strokeWidth: 2 },
+      },
+      {
+        id: 'e4-7',
+        source: 'contact',
+        target: 'analytics',
+        animated: true,
+        style: { stroke: '#8a2be2', strokeWidth: 2 },
+      },
+      {
+        id: 'e6-7',
+        source: 'settings',
+        target: 'analytics',
+        animated: true,
+        style: { stroke: '#8a2be2', strokeWidth: 2 },
+      },
+    ];
+
+    setNodes((nds) => [
+      ...nds.map((node) => {
         if (node.id === 'header') {
           return {
             ...node,
@@ -144,28 +213,44 @@ function App() {
           };
         }
         return node;
-      })
+      }),
+      ...premiumNodes,
+    ]);
+
+    setEdges((eds) => [...eds, ...premiumEdges]);
+  };
+
+  const removePremiumNodes = () => {
+    setNodes((nds) => 
+      nds.filter(node => !['chatbot', 'settings', 'analytics'].includes(node.id))
+        .map((node) => {
+          if (node.id === 'header') {
+            return {
+              ...node,
+              data: {
+                ...node.data,
+                name: 'MediumWarrior67',
+                discordAvatar: null,
+              },
+            };
+          }
+          return node;
+        })
     );
+
+    setEdges((eds) => 
+      eds.filter(edge => !['e4-5', 'e5-6', 'e4-7', 'e6-7'].includes(edge.id))
+    );
+  };
+
+  const handleLogin = (userData) => {
+    setUser(userData);
+    addPremiumNodes(userData);
   };
 
   const handleLogout = () => {
     setUser(null);
-    // Reset identity node
-    setNodes((nds) =>
-      nds.map((node) => {
-        if (node.id === 'header') {
-          return {
-            ...node,
-            data: {
-              ...node.data,
-              name: 'MediumWarrior67',
-              discordAvatar: null,
-            },
-          };
-        }
-        return node;
-      })
-    );
+    removePremiumNodes();
   };
 
   const onConnect = useCallback(

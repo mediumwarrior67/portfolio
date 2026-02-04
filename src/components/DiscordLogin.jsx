@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
 const DISCORD_CLIENT_ID = '1468563080333099116'; // Replace with your Discord app client ID
-const REDIRECT_URI = window.location.origin + '/';
-const DISCORD_OAUTH_URL = `https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=token&scope=identify`;
+const REDIRECT_URI = window.location.origin + window.location.pathname;
+const DISCORD_OAUTH_URL = `https://discord.com/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=token&scope=identify`;
 
 function DiscordLogin({ onLogin, user, onLogout }) {
   const [isLoading, setIsLoading] = useState(false);

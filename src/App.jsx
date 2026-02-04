@@ -16,7 +16,6 @@ import SkillsNode from './components/SkillsNode';
 import ProjectsNode from './components/ProjectsNode';
 import ContactNode from './components/ContactNode';
 import ChatbotNode from './components/ChatbotNode';
-import DiscordLogin from './components/DiscordLogin';
 import './App.css';
 
 const nodeTypes = {
@@ -36,7 +35,9 @@ const initialNodes = [
       label: 'IDENTITY MODULE',
       name: 'MediumWarrior67',
       title: 'Full Stack Developer',
-      status: 'ACTIVE'
+      status: 'ACTIVE',
+      onLogin: null,
+      onLogout: null
     },
   },
   {
@@ -98,35 +99,35 @@ const initialEdges = [
     source: 'header', 
     target: 'skills',
     animated: true,
-    style: { stroke: '#00ffff', strokeWidth: 2 },
+    style: { stroke: '#58a6ff', strokeWidth: 2 },
   },
   { 
     id: 'e1-3', 
     source: 'header', 
     target: 'projects',
     animated: true,
-    style: { stroke: '#00ffff', strokeWidth: 2 },
+    style: { stroke: '#58a6ff', strokeWidth: 2 },
   },
   { 
     id: 'e2-4', 
     source: 'skills', 
     target: 'contact',
     animated: true,
-    style: { stroke: '#00ffff', strokeWidth: 2 },
+    style: { stroke: '#58a6ff', strokeWidth: 2 },
   },
   { 
     id: 'e3-4', 
     source: 'projects', 
     target: 'contact',
     animated: true,
-    style: { stroke: '#00ffff', strokeWidth: 2 },
+    style: { stroke: '#58a6ff', strokeWidth: 2 },
   },
   {
     id: 'e2-5',
     source: 'skills',
     target: 'chatbot',
     animated: true,
-    style: { stroke: '#666666', strokeWidth: 2, opacity: 0.3 },
+    style: { stroke: '#30363d', strokeWidth: 2, opacity: 0.4 },
   },
 ];
 
@@ -184,7 +185,7 @@ function App() {
           return {
             ...edge,
             animated: true,
-            style: { stroke: '#8a2be2', strokeWidth: 2, opacity: 1 },
+            style: { stroke: '#58a6ff', strokeWidth: 2, opacity: 1 },
           };
         }
         return edge;
@@ -226,7 +227,7 @@ function App() {
           return {
             ...edge,
             animated: true,
-            style: { stroke: '#666666', strokeWidth: 2, opacity: 0.3 },
+            style: { stroke: '#30363d', strokeWidth: 2, opacity: 0.4 },
           };
         }
         return edge;
@@ -249,16 +250,32 @@ function App() {
     (params) => setEdges((eds) => addEdge({
       ...params,
       animated: true,
-      style: { stroke: '#00ffff', strokeWidth: 2 },
+      style: { stroke: '#58a6ff', strokeWidth: 2 },
     }, eds)),
     [setEdges],
   );
 
+  // Pass login/logout handlers to identity node
+  useEffect(() => {
+    setNodes((nds) =>
+      nds.map((node) => {
+        if (node.id === 'header') {
+          return {
+            ...node,
+            data: {
+              ...node.data,
+              onLogin: handleLogin,
+              onLogout: handleLogout,
+            },
+          };
+        }
+        return node;
+      })
+    );
+  }, []);
+
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
-      <div className="auth-panel">
-        <DiscordLogin onLogin={handleLogin} user={user} onLogout={handleLogout} />
-      </div>
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -269,15 +286,15 @@ function App() {
         fitView
       >
         <Background 
-          color="#00ffff"
+          color="#30363d"
           gap={16}
           size={1}
-          style={{ backgroundColor: '#0a0e1a' }}
+          style={{ backgroundColor: '#0d1117' }}
         />
         <Controls />
         <MiniMap 
-          nodeColor={() => '#00ffff'}
-          maskColor="rgba(10, 14, 26, 0.8)"
+          nodeColor={() => '#58a6ff'}
+          maskColor="rgba(13, 17, 23, 0.9)"
         />
         <Panel position="top-left" className="header-panel">
           <div className="command-header">

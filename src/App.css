@@ -8,8 +8,8 @@
 
 body {
   font-family: 'Share Tech Mono', monospace;
-  background: linear-gradient(135deg, #0a0e27 0%, #1a1147 50%, #0a0e27 100%);
-  color: #00ffff;
+  background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+  color: #8b949e;
   overflow: hidden;
 }
 
@@ -20,11 +20,10 @@ body {
 }
 
 .react-flow__handle {
-  background: #00ffff;
-  border: 2px solid #00ffff;
+  background: #58a6ff;
+  border: 2px solid #58a6ff;
   width: 10px;
   height: 10px;
-  box-shadow: 0 0 10px #00ffff;
 }
 
 .react-flow__edge-path {
@@ -40,11 +39,10 @@ body {
 
 .header-panel {
   background: rgba(10, 14, 26, 0.8);
-  border: 1px solid #00ffff;
+  border: 1px solid22, 27, 34, 0.95);
+  border: 1px solid #30363d;
   padding: 15px 25px;
-  border-radius: 0;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-}
+  border-radius: 6px
 
 .command-header {
   display: flex;
@@ -57,36 +55,33 @@ body {
   font-size: 24px;
   font-weight: 700;
   background: linear-gradient(90deg, #00ffff 0%, #8a2be2 50%, #00ffff 100%);
+  -webkit-background-clip: text;58a6ff 0%, #a371f7 50%, #58a6ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  letter-spacing: 2px;
-  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-  filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.5));
-}
+  letter-spacing: 2px
 
 .command-subtitle {
   font-family: 'Share Tech Mono', monospace;
   font-size: 11px;
   color: #00ffff;
   opacity: 0.7;
-  letter-spacing: 1px;
-}
+  letter-s6e7681;
+  opacity: 0.9
 
 .node-container {
-  background: linear-gradient(135deg, rgba(15, 20, 45, 0.95) 0%, rgba(25, 15, 45, 0.95) 100%);
-  border: 2px solid #00d9ff;
+  background: linear-gradient(135deg, rgba(22, 27, 34, 0.95) 0%, rgba(30, 30, 40, 0.95) 100%);
+  border: 1px solid #30363d;
   padding: 20px;
   min-width: 300px;
   position: relative;
-  box-shadow: 0 0 30px rgba(138, 43, 226, 0.3), 0 0 60px rgba(0, 217, 255, 0.2);
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  border-radius: 6px;
 }
 
 .node-container:hover {
-  box-shadow: 0 0 50px rgba(138, 43, 226, 0.6), 0 0 80px rgba(0, 217, 255, 0.4);
-  border-color: #00ffff;
+  border-color: #58a6ff;
   transform: translateY(-2px);
 }
 
@@ -97,7 +92,7 @@ body {
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(0, 255, 255, 0.3);
-}
+}#30363d
 
 .node-title {
   display: flex;
@@ -107,7 +102,7 @@ body {
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1px;
-  color: #00ffff;
+  color: #c9d1d9;
 }
 
 .node-icon {
@@ -131,23 +126,19 @@ body {
 }
 
 .status-dot.active {
-  background: #00ff88;
-  box-shadow: 0 0 10px #00ff88, 0 0 20px rgba(0, 255, 136, 0.5);
+  background: #3fb950;
 }
 
 .status-dot.online {
-  background: #00ffff;
-  box-shadow: 0 0 10px #00ffff;
+  background: #58a6ff;
 }
 
 .status-dot.deployed {
-  background: #ffa500;
-  box-shadow: 0 0 10px #ffa500, 0 0 20px rgba(255, 165, 0, 0.5);
+  background: #f0883e;
 }
 
 .status-dot.secure {
-  background: #ff00ff;
-  box-shadow: 0 0 10px #ff00ff, 0 0 20px rgba(255, 0, 255, 0.5);
+  background: #d29922;
 }
 
 @keyframes pulse {
@@ -180,21 +171,21 @@ body {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 1px;
+}#8b949e;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .field-value {
-  color: #ffa500;
+  color: #58a6ff;
   font-weight: 600;
-  font-size: 14px;
-  text-shadow: 0 0 8px rgba(255, 165, 0, 0.4);
-}
-
-.action-button {
-  margin-top: 15px;
+  font-size: 14px
   padding: 10px 20px;
   background: transparent;
   border: 2px solid #00d9ff;
-  color: #00ffff;
+  color: #1px solid #30363d;
+  color: #c9d1d9;
   font-family: 'Share Tech Mono', monospace;
   font-size: 12px;
   text-transform: uppercase;
@@ -203,13 +194,13 @@ body {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  border-radius: 6px;
 }
 
 .action-button:hover {
-  background: linear-gradient(90deg, #00ffff 0%, #8a2be2 100%);
+  background: #238636;
   color: #ffffff;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(138, 43, 226, 0.4);
-  border-color: #8a2be2;
+  border-color: #2ea043;
 }
 
 .skills-list {
@@ -232,27 +223,27 @@ body {
 }
 
 .skill-name {
-  color: #00ffff;
+  color: #c9d1d9;
 }
 
 .skill-level {
-  color: #ffa500;
+  color: #6e7681;
   font-size: 11px;
-  text-shadow: 0 0 6px rgba(255, 165, 0, 0.3);
 }
 
 .skill-bar {
   height: 4px;
-  background: rgba(0, 255, 255, 0.2);
+  background: #21262d;
   position: relative;
   overflow: hidden;
+  border-radius: 2px;
 }
 
 .skill-progress {
   height: 100%;
-  background: linear-gradient(90deg, #00ffff 0%, #8a2be2 50%, #ffa500 100%);
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(138, 43, 226, 0.4);
+  background: linear-gradient(90deg, #58a6ff 0%, #a371f7 100%);
   animation: slideIn 1s ease-out;
+  border-radius: 2px;
 }
 
 @keyframes slideIn {
@@ -269,26 +260,27 @@ body {
 
 .project-item {
   padding: 12px;
-  background: rgba(0, 255, 255, 0.05);
-  border-left: 2px solid #00ffff;
+  background: rgba(48, 54, 61, 0.3);
+  border-left: 2px solid #58a6ff;
   transition: all 0.3s ease;
+  border-radius: 4px;
 }
 
 .project-item:hover {
-  background: rgba(0, 255, 255, 0.1);
-  border-left-color: #ffaa00;
+  background: rgba(48, 54, 61, 0.5);
+  border-left-color: #a371f7;
   transform: translateX(5px);
 }
 
 .project-name {
-  color: #00ffff;
+  color: #58a6ff;
   font-size: 13px;
   font-weight: 600;
   margin-bottom: 5px;
 }
 
 .project-tech {
-  color: rgba(0, 255, 255, 0.6);
+  color: #8b949e;
   font-size: 11px;
 }
 
@@ -303,27 +295,27 @@ body {
   align-items: center;
   gap: 12px;
   padding: 10px;
-  background: rgba(0, 255, 255, 0.05);
-  border: 1px solid rgba(0, 255, 255, 0.2);
+  background: rgba(48, 54, 61, 0.3);
+  border: 1px solid #30363d;
   transition: all 0.3s ease;
+  border-radius: 4px;
 }
 
 .contact-item:hover {
-  background: rgba(0, 255, 255, 0.1);
-  border-color: #00ffff;
+  background: rgba(48, 54, 61, 0.5);
+  border-color: #58a6ff;
   transform: translateX(5px);
 }
 
 .contact-icon {
   font-size: 20px;
-  color: #00ffff;
+  color: #58a6ff;
 }
 
 .contact-value {
-  color: #ffa500;
+  color: #c9d1d9;
   font-size: 12px;
   word-break: break-all;
-  text-shadow: 0 0 6px rgba(255, 165, 0, 0.3);
 }
 
 .react-flow__controls {
@@ -356,10 +348,11 @@ body {
   height: 300px;
   overflow-y: auto;
   padding: 15px;
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(0, 255, 255, 0.2);
+  background: #0d1117;
+  border: 1px solid #30363d;
   margin-bottom: 15px;
   scroll-behavior: smooth;
+  border-radius: 6px;
 }
 
 .chat-messages::-webkit-scrollbar {
@@ -367,11 +360,11 @@ body {
 }
 
 .chat-messages::-webkit-scrollbar-track {
-  background: rgba(0, 255, 255, 0.1);
+  background: #161b22;
 }
 
 .chat-messages::-webkit-scrollbar-thumb {
-  background: #00ffff;
+  background: #30363d;
   border-radius: 3px;
 }
 
@@ -393,7 +386,7 @@ body {
 
 .message-sender {
   font-size: 11px;
-  color: rgba(0, 255, 255, 0.7);
+  color: #8b949e;
   margin-bottom: 5px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -401,16 +394,17 @@ body {
 
 .message-content {
   padding: 10px 12px;
-  background: rgba(0, 255, 255, 0.05);
-  border-left: 2px solid #00ffff;
-  color: #ffffff;
+  background: rgba(48, 54, 61, 0.3);
+  border-left: 2px solid #58a6ff;
+  color: #c9d1d9;
   font-size: 13px;
   line-height: 1.5;
+  border-radius: 4px;
 }
 
 .chat-message.user .message-content {
-  background: rgba(138, 43, 226, 0.1);
-  border-left-color: #8a2be2;
+  background: rgba(163, 113, 247, 0.1);
+  border-left-color: #a371f7;
 }
 
 .chat-input-container {
@@ -420,38 +414,38 @@ body {
 
 .chat-input {
   flex: 1;
-  padding: 10px 15px;
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(0, 255, 255, 0.3);
-  color: #00ffff;
+  padding: 10p#0d1117;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
   font-family: 'Share Tech Mono', monospace;
   font-size: 13px;
   outline: none;
   transition: all 0.3s ease;
+  border-radius: 6px;
 }
 
 .chat-input:focus {
-  border-color: #00ffff;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  border-color: #58a6ff;
 }
 
 .chat-input::placeholder {
+  color: #6e7681
   color: rgba(0, 255, 255, 0.4);
 }
 
 .chat-send-btn {
   padding: 10px 20px;
-  background: linear-gradient(90deg, #00ffff 0%, #8a2be2 100%);
-  border: none;
+  background: #238636;
+  border: 1px solid #2ea043;
   color: #ffffff;
   font-size: 18px;
   cursor: pointer;
   transition: all 0.3s ease;
+  border-radius: 6px;
 }
 
 .chat-send-btn:hover:not(:disabled) {
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-  transform: scale(1.05);
+  background: #2ea043;
 }
 
 .chat-send-btn:disabled {
@@ -651,26 +645,32 @@ body {
 .discord-login-btn {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 24px;
-  background: linear-gradient(135deg, #5865F2 0%, #404eed 100%);
-  border: 2px solid #5865F2;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #5865F2;
+  border: 1px solid #4752c4;
   color: #ffffff;
   font-family: 'Share Tech Mono', monospace;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 4px;
-  box-shadow: 0 4px 20px rgba(88, 101, 242, 0.4);
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  width: 100%;
+  justify-content: center;
+  margin-top: 15px;
 }
 
 .discord-login-btn:hover {
-  background: linear-gradient(135deg, #404eed 0%, #5865F2 100%);
-  box-shadow: 0 6px 30px rgba(88, 101, 242, 0.6);
-  transform: translateY(-2px);
+  background: #4752c4;
+  border-color: #3c45a5;
+}
+
+.discord-login-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .discord-login-btn svg {
@@ -737,21 +737,23 @@ body {
 .discord-logout-btn {
   padding: 8px 16px;
   background: transparent;
-  border: 2px solid #ed4245;
-  color: #ed4245;
+  border: 1px solid #da3633;
+  color: #f85149;
   font-family: 'Share Tech Mono', monospace;
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 4px;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  width: 100%;
+  margin-top: 15px;
 }
 
 .discord-logout-btn:hover {
-  background: #ed4245;
+  background: #da3633;
   color: #ffffff;
-  box-shadow: 0 0 20px rgba(237, 66, 69, 0.5);
+  border-color: #b62324;
 }
 
 .loading-spinner {
@@ -770,8 +772,8 @@ body {
 /* Locked node styles */
 .locked-node {
   position: relative;
-  filter: blur(3px);
-  opacity: 0.6;
+  filter: blur(2px);
+  opacity: 0.5;
   pointer-events: none;
 }
 
@@ -781,7 +783,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(10, 14, 39, 0.9);
+  background: rgba(13, 17, 23, 0.95);
   backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
@@ -789,33 +791,30 @@ body {
   justify-content: center;
   gap: 15px;
   z-index: 10;
-  border-radius: 4px;
-  border: 2px solid rgba(138, 43, 226, 0.3);
-  box-shadow: 0 0 30px rgba(138, 43, 226, 0.2);
+  border-radius: 6px;
+  border: 1px solid #30363d;
 }
 
 .lock-icon {
   font-size: 48px;
-  color: #8a2be2;
-  text-shadow: 0 0 20px rgba(138, 43, 226, 0.8);
+  color: #6e7681;
   animation: lockPulse 2s ease-in-out infinite;
 }
 
 .lock-message {
-  color: #00ffff;
+  color: #8b949e;
   font-size: 14px;
   font-family: 'Share Tech Mono', monospace;
   text-align: center;
-  text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
 }
 
 @keyframes lockPulse {
   0%, 100% {
     transform: scale(1);
-    opacity: 0.8;
+    opacity: 0.6;
   }
   50% {
-    transform: scale(1.1);
-    opacity: 1;
+    transform: scale(1.05);
+    opacity: 0.8;
   }
 }

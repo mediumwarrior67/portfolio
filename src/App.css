@@ -39,10 +39,10 @@ body {
 
 .header-panel {
   background: rgba(10, 14, 26, 0.8);
-  border: 1px solid22, 27, 34, 0.95);
   border: 1px solid #30363d;
   padding: 15px 25px;
-  border-radius: 6px
+  border-radius: 6px;
+}
 
 .command-header {
   display: flex;
@@ -55,19 +55,19 @@ body {
   font-size: 24px;
   font-weight: 700;
   background: linear-gradient(90deg, #00ffff 0%, #8a2be2 50%, #00ffff 100%);
-  -webkit-background-clip: text;58a6ff 0%, #a371f7 50%, #58a6ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  letter-spacing: 2px
+  letter-spacing: 2px;
+}
 
 .command-subtitle {
   font-family: 'Share Tech Mono', monospace;
   font-size: 11px;
   color: #00ffff;
   opacity: 0.7;
-  letter-s6e7681;
-  opacity: 0.9
+  letter-spacing: 1px;
+}
 
 .node-container {
   background: linear-gradient(135deg, rgba(22, 27, 34, 0.95) 0%, rgba(30, 30, 40, 0.95) 100%);
@@ -92,7 +92,7 @@ body {
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(0, 255, 255, 0.3);
-}#30363d
+}
 
 .node-title {
   display: flex;
@@ -171,21 +171,19 @@ body {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 1px;
-}#8b949e;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .field-value {
   color: #58a6ff;
   font-weight: 600;
-  font-size: 14px
+  font-size: 14px;
+}
+
+.action-button {
   padding: 10px 20px;
   background: transparent;
   border: 2px solid #00d9ff;
-  color: #1px solid #30363d;
-  color: #c9d1d9;
+  color: #00d9ff;
   font-family: 'Share Tech Mono', monospace;
   font-size: 12px;
   text-transform: uppercase;
@@ -429,7 +427,6 @@ body {
 }
 
 .chat-input::placeholder {
-  color: #6e7681
   color: rgba(0, 255, 255, 0.4);
 }
 

@@ -14,7 +14,6 @@ import '@xyflow/react/dist/style.css';
 import IdentityNode from './components/IdentityNode';
 import SkillsNode from './components/SkillsNode';
 import ProjectsNode from './components/ProjectsNode';
-import ContactNode from './components/ContactNode';
 import ChatbotNode from './components/ChatbotNode';
 import './App.css';
 
@@ -22,7 +21,6 @@ const nodeTypes = {
   identity: IdentityNode,
   skills: SkillsNode,
   projects: ProjectsNode,
-  contact: ContactNode,
   chatbot: ChatbotNode,
 };
 
@@ -71,24 +69,14 @@ const initialNodes = [
     },
   },
   {
-    id: 'contact',
-    type: 'contact',
-    position: { x: 500, y: 350 },
-    data: { 
-      label: 'COMMUNICATION LAYER',
-      email: 'contact@mediumwarrior.dev',
-      github: 'mediumwarrior67',
-      status: 'SECURE'
-    },
-  },
-  {
     id: 'chatbot',
     type: 'chatbot',
     position: { x: 900, y: 150 },
     data: {
       label: 'AI ASSISTANT',
       status: 'LOCKED',
-      unlocked: false
+      unlocked: false,
+      isExpanded: false
     },
   },
 ];
@@ -105,20 +93,6 @@ const initialEdges = [
     id: 'e1-3', 
     source: 'header', 
     target: 'projects',
-    animated: true,
-    style: { stroke: '#58a6ff', strokeWidth: 2 },
-  },
-  { 
-    id: 'e2-4', 
-    source: 'skills', 
-    target: 'contact',
-    animated: true,
-    style: { stroke: '#58a6ff', strokeWidth: 2 },
-  },
-  { 
-    id: 'e3-4', 
-    source: 'projects', 
-    target: 'contact',
     animated: true,
     style: { stroke: '#58a6ff', strokeWidth: 2 },
   },
@@ -171,6 +145,7 @@ function App() {
               ...node.data,
               status: 'READY',
               unlocked: true,
+              isExpanded: true,
             },
           };
         }
@@ -213,6 +188,7 @@ function App() {
               ...node.data,
               status: 'LOCKED',
               unlocked: false,
+              isExpanded: false,
             },
           };
         }

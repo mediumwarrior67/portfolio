@@ -7,8 +7,16 @@ function ChatbotNode({ data }) {
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(data.isExpanded || false);
   const isLocked = !data.unlocked;
   const messagesEndRef = useRef(null);
+
+  // Sync with data.isExpanded when it changes (e.g., on login)
+  useEffect(() => {
+    if (data.isExpanded !== undefined) {
+      setIsExpanded(data.isExpanded);
+    }
+  }, [data.isExpanded]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -73,8 +81,14 @@ function ChatbotNode({ data }) {
     }
   };
 
+  const toggleExpand = () => {
+    if (!isLocked) {
+      setIsExpanded(!isExpanded);
+    }
+  };
+
   return (
-    <div className={`node-container chatbot-node ${isLocked ? 'locked-node' : ''}`}>
+    <div className={`node-container chatbot-node ${isLocked ? 'locked-node' : ''} ${isExpanded ? 'expanded' : 'collapsed'}`}>
       {isLocked && (
         <div className="locked-overlay">
           <div className="lock-icon">🔒</div>
@@ -86,12 +100,20 @@ function ChatbotNode({ data }) {
           <span className="node-icon">🤖</span>
           {data.label}
         </div>
-        <div className="status-indicator">
-          <span className={`status-dot ${isLoading ? 'loading' : 'active'}`}></span>
-          {isLoading ? 'THINKING' : 'READY'}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div className="status-indicator">
+            <span className={`status-dot ${isLoading ? 'loading' : 'active'}`}></span>
+            {isLoading ? 'THINKING' : data.status}
+          </div>
+          {!isLocked && (
+            <button className="expand-btn" onClick={toggleExpand}>
+              {isExpanded ? '−' : '+'}
+            </button>
+          )}
         </div>
       </div>
-      <div className="node-content">
+      {isExpanded && (
+        <div className="node-content">
         <div className="chat-messages">
           {messages.map((msg, idx) => (
             <div key={idx} className={`chat-message ${msg.role}`}>
@@ -130,6 +152,7 @@ function ChatbotNode({ data }) {
           </button>
         </div>
       </div>
+      )}
       <Handle type="target" position={Position.Top} id="a" />
       <Handle type="target" position={Position.Left} id="b" />
     </div>
